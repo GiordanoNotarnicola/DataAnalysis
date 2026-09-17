@@ -28,7 +28,7 @@ def totex(phrase):
             continue
     return print(all)
 
-risp=input("Vuoi conoscere il numero di caratteri del tuo testo? Digita 'help' per le istruzioni, premi un qualsiasi altro tasto per proseguire"
+risp=input("Vuoi conoscere il numero di caratteri del tuo testo? Digita 'help' per le istruzioni, premi un qualsiasi altro tastoper proseguire."
 "'z' per terminare.")
 if risp=="help":
     print("Benvenuto nel conta caratteri di G.N., puoi ottenere il numero di caratteri del testo in memoria con o senza spazi" \

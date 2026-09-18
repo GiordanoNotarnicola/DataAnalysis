@@ -2,16 +2,22 @@ import time
 import matplotlib.pyplot as plt
 
 alpha="abcdefghijklmnopqrstuvxwyz"
+nalpha=0
+for i in alpha:
+    nalpha+=1
+
 
 def count(phrase, car):
     phrase=phrase.lower()
+    occorrenze=[]
     for j, lettera in enumerate(car,start=0):
         contatore=0
         for i in phrase:
             if i==lettera:
                 contatore+=1
-        if contatore>0:
-            print(f"ci sono {contatore} {car[j]}")
+        print(f"ci sono {contatore} {car[j]}")
+        occorrenze.append(contatore)
+    return occorrenze
 
 def totin(phrase):
     all=0
@@ -27,6 +33,8 @@ def totex(phrase):
         else:
             continue
     return print(all)
+
+
 
 risp=input("Vuoi conoscere il numero di caratteri del tuo testo? Digita 'help' per le istruzioni, premi un qualsiasi altro tastoper proseguire."
 "'z' per terminare.")
@@ -54,13 +62,23 @@ elif risp2=="senza":
     print(f"Tempo impiegato: {t:.3f}s")
 else:
     print("Va bene, proseguiamo!")
-risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' se acconsenti, un qualsiasi altro carattere" \
-" per spegnere il programma")
+risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' se acconsenti, digita 'hist' per vederlo in un istogramma.")
 if risp3=='letter':
     start=time.perf_counter()
     count(testo, alpha)
     fine=time.perf_counter()
     t=fine-start
-    print(f"Tempo impiegato: {t:.3f}s, grazie e arrivederci")
+    print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie")
+if risp3=='hist':
+    start=time.perf_counter()
+    plt.figure()
+    plt.bar(list(alpha), count(testo, alpha) ,label="Istogramma delle occorrenze delle lettere"  )
+    fine=time.perf_counter()
+    plt.xlabel("Lettere dell'alfabeto")
+    plt.ylabel("Occorrenze")
+
+    plt.show()
+    t=fine-start
+    print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie.")
 else:
     print("Arrivederci e grazie!")

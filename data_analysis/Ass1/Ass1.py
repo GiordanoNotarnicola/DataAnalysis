@@ -19,6 +19,13 @@ def count(phrase, car):
         occorrenze.append(contatore)
     return occorrenze
 
+def word(phrase):
+    contatore=0
+    for i in phrase:
+        if i==" ":
+            contatore+=1
+    return contatore
+
 def totin(phrase):
     all=0
     for i in phrase:
@@ -35,7 +42,6 @@ def totex(phrase):
     return print(all)
 
 
-
 risp=input("Vuoi conoscere tutte le caratteristiche del tuo testo in formato .txt? Digita 'help' per le istruzioni, premi un qualsiasi altro tasto per proseguire, "
 "esegui 'z' per terminare.")
 if risp=="help":
@@ -47,7 +53,7 @@ elif risp=="z":
 file_path=input("Inserisci il percorso del testo")
 with open(file_path, "r", encoding="utf-8") as file:
     testo = file.read()
-risp2=input("Digita 'con' o 'senza' per conoscere il numero di caratteri del testo, altrimenti digita un carattere qualsiasi.")
+risp2=input("Digita 'con' o 'senza' per conoscere il numero di caratteri del testo, 'words' per il numero di parole, altrimenti digita un carattere qualsiasi.")
 if risp2=="con":
     start=time.perf_counter()
     totin(testo)
@@ -60,6 +66,8 @@ elif risp2=="senza":
     fine=time.perf_counter()
     t=fine-start
     print(f"Tempo impiegato: {t:.3f}s")
+elif risp2=="words":
+    word(testo)
 else:
     print("Va bene, proseguiamo!")
 risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' per vederlo stampato a schermo, digita 'hist' per vederlo anche in un istogramma.")

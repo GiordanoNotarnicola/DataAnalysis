@@ -36,12 +36,12 @@ def totex(phrase):
 
 
 
-risp=input("Vuoi conoscere il numero di caratteri del tuo testo? Digita 'help' per le istruzioni, premi un qualsiasi altro tastoper proseguire."
-"'z' per terminare.")
+risp=input("Vuoi conoscere tutte le caratteristiche del tuo testo in formato .txt? Digita 'help' per le istruzioni, premi un qualsiasi altro tasto per proseguire, "
+"esegui 'z' per terminare.")
 if risp=="help":
-    print("Benvenuto nel conta caratteri di G.N., puoi ottenere il numero di caratteri del testo in memoria con o senza spazi" \
-    " e anche il numero di lettere, inserisci il percorso del tuo testo, poi digita 'con' per ottenere il conteggio con gli spazi," \
-    " 'senza' per quello senza spazi. In seguito digita 'letter' per conoscere il numero di ogni lettera presente nel testo.")
+    print("Benvenuto nel conta caratteri di G.N., puoi ottenere il numero di caratteri del testo in memoria spazi inclusi o esclusi, " \
+    "inserisci la directory del tuo testo, poi digita 'con' per ottenere il conteggio con gli spazi," \
+    " 'senza' per quello senza spazi. Seguiranno ulteriori istruzioni per conoscere anche il quantitativo di caratteri per ogni lettera.")
 elif risp=="z":
     quit()
 file_path=input("Inserisci il percorso del testo")
@@ -62,7 +62,7 @@ elif risp2=="senza":
     print(f"Tempo impiegato: {t:.3f}s")
 else:
     print("Va bene, proseguiamo!")
-risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' se acconsenti, digita 'hist' per vederlo in un istogramma.")
+risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' per vederlo stampato a schermo, digita 'hist' per vederlo anche in un istogramma.")
 if risp3=='letter':
     start=time.perf_counter()
     count(testo, alpha)
@@ -76,7 +76,6 @@ if risp3=='hist':
     fine=time.perf_counter()
     plt.xlabel("Lettere dell'alfabeto")
     plt.ylabel("Occorrenze")
-
     plt.show()
     t=fine-start
     print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie.")

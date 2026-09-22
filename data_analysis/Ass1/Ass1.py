@@ -89,3 +89,4 @@ if risp3=='hist':
     print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie.")
 else:
     print("Arrivederci e grazie!")
+#commentiamo qualcosa

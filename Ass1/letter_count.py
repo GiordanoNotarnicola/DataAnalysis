@@ -45,19 +45,19 @@ def totex(phrase):
     return print(all)
 
 
-risp=input("Vuoi conoscere tutte le caratteristiche del tuo testo in formato .txt? Digita 'help' per le istruzioni, premi un qualsiasi altro tasto per proseguire, "
-"esegui 'z' per terminare.")
-if risp=="help":
-    print("Benvenuto nel conta caratteri di G.N., puoi ottenere il numero di caratteri del testo in memoria spazi inclusi o esclusi, " \
-    "inserisci la directory del tuo testo, poi digita 'con' per ottenere il conteggio con gli spazi," \
-    " 'senza' per quello senza spazi. Seguiranno ulteriori istruzioni per conoscere anche il quantitativo di caratteri per ogni lettera.")
+risp=input("Vuoi conoscere tutte le caratteristiche del tuo testo in formato .txt? Digita '--help' per le istruzioni, un qualsiasi altro tasto per proseguire, "
+"'z' per terminare.")
+if risp=="--help":
+    print("Benvenuto nel conta caratteri di G.N., finalizzato a ottenere la frequenza dei caratteri di un testo a tua scelta. " \
+    "Inserisci il percorso del tuo testo. Seguiranno ulteriori istruzioni per conoscere le ulteriori funzionalità.")
 elif risp=="z":
     quit()
 file_path=input("Inserisci il percorso del testo")
 with open(file_path, "r", encoding="utf-8") as file:
     testo = file.read()
-risp2=input("Digita 'con' o 'senza' per conoscere il numero di caratteri del testo, 'words' per il numero di parole, altrimenti digita un carattere qualsiasi.")
-if risp2=="con":
+risp2=input("Digita 'con' o 'senza' per conoscere il numero di caratteri del testo con o senza spazi, 'words' per il numero di parole," \
+" altrimenti digita un tasto qualsiasi per proseguire.")
+if risp2=="con":   
     start=time.perf_counter()
     totin(testo)
     fine=time.perf_counter()
@@ -73,7 +73,7 @@ elif risp2=="words":
     word(testo)
 else:
     print("Va bene, proseguiamo!")
-risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' per vederlo stampato a schermo, digita 'hist' per vederlo anche in un istogramma.")
+risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' per vederlo stampato a schermo, digita 'hist' raccogliere i dati in un istogramma.")
 if risp3=='letter':
     start=time.perf_counter()
     count(testo, alpha)

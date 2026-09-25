@@ -1,16 +1,17 @@
 import time
 import matplotlib.pyplot as plt
+import string
 
 #this code counts the letter of a text and has more
 #interesting fearures
 
-alpha="abcdefghijklmnopqrstuvxwyz"
+alpha=string.ascii_lowercase
 nalpha=0
 for i in alpha:
     nalpha+=1
 
 
-def count(phrase, car):
+def count(phrase:str, car:str)->int:
     phrase=phrase.lower()
     occorrenze=[]
     for j, lettera in enumerate(car,start=0):
@@ -22,7 +23,7 @@ def count(phrase, car):
         occorrenze.append(contatore)
     return occorrenze
 
-def word(phrase):
+def word(phrase:str)->int:
     contatore=0
     for i in phrase:
         if i==" ":

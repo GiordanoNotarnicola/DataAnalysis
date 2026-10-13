@@ -18,7 +18,7 @@ jobs:
           python-version: "3.12"
 
       - name: Installa pytest
-        run: pip install pytest
+        run: pip install -r requirements,txt
 
       - name: Esegui i test
         run: python -m pytest

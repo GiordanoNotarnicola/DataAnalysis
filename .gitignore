@@ -3,7 +3,6 @@
 *.pdf
 *.png
 *.txt
-!requirements.txt
 *.pyc
 .pytest_cache/
 __pycache__/

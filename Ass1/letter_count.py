@@ -5,21 +5,16 @@ import string
 #this code counts the letter of a text and has more
 #interesting fearures
 
-alpha=string.ascii_lowercase
-nalpha=0
-for i in alpha:
-    nalpha+=1
-
-
-def count(phrase:str, car:str)->int:
+def count(phrase:str)->int:
+    alpha=string.ascii_lowercase
     phrase=phrase.lower()
     occorrenze=[]
-    for j, lettera in enumerate(car,start=0):
+    for j, lettera in enumerate(alpha,start=0):
         contatore=0
         for i in phrase:
             if i==lettera:
                 contatore+=1
-        print(f"ci sono {contatore} {car[j]}")
+        print(f"ci sono {contatore} {alpha[j]}")
         occorrenze.append(contatore)
     return occorrenze
 
@@ -77,14 +72,14 @@ else:
 risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' per vederlo stampato a schermo, digita 'hist' raccogliere i dati in un istogramma.")
 if risp3=='letter':
     start=time.perf_counter()
-    count(testo, alpha)
+    count(testo)
     fine=time.perf_counter()
     t=fine-start
     print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie")
 if risp3=='hist':
     start=time.perf_counter()
     plt.figure()
-    plt.bar(list(alpha), count(testo, alpha) ,label="Istogramma delle occorrenze delle lettere"  )
+    plt.bar(list(string.ascii_lowercase), count(testo) ,label="Istogramma delle occorrenze delle lettere"  )
     fine=time.perf_counter()
     plt.xlabel("Lettere dell'alfabeto")
     plt.ylabel("Occorrenze")

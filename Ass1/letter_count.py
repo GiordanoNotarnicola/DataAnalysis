@@ -40,51 +40,51 @@ def totex(phrase):
             continue
     return print(all)
 
-
-risp=input("Vuoi conoscere tutte le caratteristiche del tuo testo in formato .txt? Digita '--help' per le istruzioni, un qualsiasi altro tasto per proseguire, "
-"'z' per terminare.")
-if risp=="--help":
-    print("Benvenuto nel conta caratteri di G.N., finalizzato a ottenere la frequenza dei caratteri di un testo a tua scelta. " \
-    "Inserisci il percorso del tuo testo. Seguiranno ulteriori istruzioni per conoscere le ulteriori funzionalità.")
-elif risp=="z":
-    quit()
-file_path=input("Inserisci il percorso del testo")
-with open(file_path, "r", encoding="utf-8") as file:
-    testo = file.read()
-risp2=input("Digita 'con' o 'senza' per conoscere il numero di caratteri del testo con o senza spazi, 'words' per il numero di parole," \
-" altrimenti digita un tasto qualsiasi per proseguire.")
-if risp2=="con":   
-    start=time.perf_counter()
-    totin(testo)
-    fine=time.perf_counter()
-    t=fine-start
-    print(f"Tempo impiegato: {t:.3f}s")
-elif risp2=="senza":
-    start=time.perf_counter()
-    totex(testo)
-    fine=time.perf_counter()
-    t=fine-start
-    print(f"Tempo impiegato: {t:.3f}s")
-elif risp2=="words":
-    word(testo)
-else:
-    print("Va bene, proseguiamo!")
-risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' per vederlo stampato a schermo, digita 'hist' raccogliere i dati in un istogramma.")
-if risp3=='letter':
-    start=time.perf_counter()
-    count(testo)
-    fine=time.perf_counter()
-    t=fine-start
-    print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie")
-if risp3=='hist':
-    start=time.perf_counter()
-    plt.figure()
-    plt.bar(list(string.ascii_lowercase), count(testo) ,label="Istogramma delle occorrenze delle lettere"  )
-    fine=time.perf_counter()
-    plt.xlabel("Lettere dell'alfabeto")
-    plt.ylabel("Occorrenze")
-    plt.show()
-    t=fine-start
-    print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie.")
-else:
-    print("Arrivederci e grazie!")
+if __name__=="__main__":
+    risp=input("Vuoi conoscere tutte le caratteristiche del tuo testo in formato .txt? Digita '--help' per le istruzioni, un qualsiasi altro tasto per proseguire, "
+    "'z' per terminare.")
+    if risp=="--help":
+        print("Benvenuto nel conta caratteri di G.N., finalizzato a ottenere la frequenza dei caratteri di un testo a tua scelta. " \
+        "Inserisci il percorso del tuo testo. Seguiranno ulteriori istruzioni per conoscere le ulteriori funzionalità.")
+    elif risp=="z":
+        quit()
+    file_path=input("Inserisci il percorso del testo")
+    with open(file_path, "r", encoding="utf-8") as file:
+        testo = file.read()
+    risp2=input("Digita 'con' o 'senza' per conoscere il numero di caratteri del testo con o senza spazi, 'words' per il numero di parole," \
+    " altrimenti digita un tasto qualsiasi per proseguire.")
+    if risp2=="con":   
+        start=time.perf_counter()
+        totin(testo)
+        fine=time.perf_counter()
+        t=fine-start
+        print(f"Tempo impiegato: {t:.3f}s")
+    elif risp2=="senza":
+        start=time.perf_counter()
+        totex(testo)
+        fine=time.perf_counter()
+        t=fine-start
+        print(f"Tempo impiegato: {t:.3f}s")
+    elif risp2=="words":
+        word(testo)
+    else:
+        print("Va bene, proseguiamo!")
+    risp3=input("Vuoi conoscere ora il numero di caratteri per ogni lettera? Digita 'letter' per vederlo stampato a schermo, digita 'hist' raccogliere i dati in un istogramma.")
+    if risp3=='letter':
+        start=time.perf_counter()
+        count(testo)
+        fine=time.perf_counter()
+        t=fine-start
+        print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie")
+    if risp3=='hist':
+        start=time.perf_counter()
+        plt.figure()
+        plt.bar(list(string.ascii_lowercase), count(testo) ,label="Istogramma delle occorrenze delle lettere"  )
+        fine=time.perf_counter()
+        plt.xlabel("Lettere dell'alfabeto")
+        plt.ylabel("Occorrenze")
+        plt.show()
+        t=fine-start
+        print(f"Tempo impiegato: {t:.3f}s, arrivederci e grazie.")
+    else:
+        print("Arrivederci e grazie!")
